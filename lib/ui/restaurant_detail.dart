@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tosik/data/model/restaurant_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -22,19 +23,22 @@ class RestaurantDetail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: heightScreen * 0.4,
-                width: widthScreen,
-                margin: const EdgeInsets.only(
-                  left: 12,
-                  right: 12,
-                  top: 12,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    image: NetworkImage(restaurant.pictureId!),
-                    fit: BoxFit.cover,
+              Hero(
+                tag: restaurant.pictureId!,
+                child: Container(
+                  height: heightScreen * 0.4,
+                  width: widthScreen,
+                  margin: const EdgeInsets.only(
+                    left: 12,
+                    right: 12,
+                    top: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                      image: NetworkImage(restaurant.pictureId!),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -182,8 +186,26 @@ class RestaurantDetail extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-        ),
-      ),
+        )
+            .animate()
+            .fade(
+              duration: 850.ms,
+            )
+            .slideY(
+              begin: -0.3,
+              duration: 1200.ms,
+              curve: Curves.fastOutSlowIn,
+            ),
+      )
+          .animate()
+          .fade(
+            duration: 750.ms,
+          )
+          .slideY(
+            begin: -0.3,
+            duration: 600.ms,
+            curve: Curves.fastOutSlowIn,
+          ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
     );
   }

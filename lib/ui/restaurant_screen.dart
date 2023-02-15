@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tosik/data/model/restaurant_model.dart';
 import 'package:tosik/ui/restaurant_detail.dart';
 
@@ -70,37 +71,53 @@ class RestaurantScreen extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: SizedBox(
-                height: 100,
-                width: 125,
-                child: restaurants.pictureId == null
-                    ? Icon(
-                        Icons.broken_image,
-                        size: 100,
-                        color: Colors.grey[400],
-                      )
-                    : Image.network(
-                        restaurants.pictureId!,
-                        fit: BoxFit.cover,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) {
-                            return child;
-                          } else {
-                            return Center(
-                              child: CircularProgressIndicator(
-                                color: Colors.grey[400],
-                              ),
+              child: Hero(
+                tag: restaurants.pictureId!,
+                child: SizedBox(
+                  height: 100,
+                  width: 125,
+                  child: restaurants.pictureId == null
+                      ? Icon(
+                          Icons.broken_image,
+                          size: 100,
+                          color: Colors.grey[400],
+                        )
+                      : Image.network(
+                          restaurants.pictureId!,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            } else {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.grey[400],
+                                ),
+                              );
+                            }
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return Icon(
+                              Icons.broken_image,
+                              size: 100,
+                              color: Colors.grey[400],
                             );
-                          }
-                        },
-                        errorBuilder: (context, error, stackTrace) {
-                          return Icon(
-                            Icons.broken_image,
-                            size: 100,
-                            color: Colors.grey[400],
-                          );
-                        },
-                      ),
+                          },
+                        ).animate().shake(
+                            // delay: 500.ms,
+                            hz: 4,
+                            duration: 500.ms,
+                          ),
+                )
+                    .animate()
+                    .fade(
+                      duration: 750.ms,
+                    )
+                    .slideY(
+                      begin: -0.3,
+                      duration: 600.ms,
+                      curve: Curves.fastOutSlowIn,
+                    ),
               ),
             ),
             const SizedBox(
@@ -120,7 +137,16 @@ class RestaurantScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.subtitle2!.copyWith(
                           fontWeight: FontWeight.w500,
                         ),
-                  ),
+                  )
+                      .animate()
+                      .fade(
+                        duration: 750.ms,
+                      )
+                      .slideX(
+                        begin: -0.3,
+                        duration: 600.ms,
+                        curve: Curves.fastOutSlowIn,
+                      ),
                   const SizedBox(
                     height: 8,
                   ),
@@ -130,14 +156,32 @@ class RestaurantScreen extends StatelessWidget {
                         Icons.location_pin,
                         size: 18,
                         color: Colors.grey[400],
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 750.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 600.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                       Text(
                         '${restaurants.city}',
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2!
                             .copyWith(color: const Color(0xFF616161)),
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 750.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 600.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                     ],
                   ),
                   const SizedBox(
@@ -159,7 +203,16 @@ class RestaurantScreen extends StatelessWidget {
                             .bodyText2!
                             .copyWith(color: const Color(0xFF616161)),
                       ),
-                    ],
+                    ]
+                        .animate()
+                        .fade(
+                          duration: 750.ms,
+                        )
+                        .slideX(
+                          begin: -0.3,
+                          duration: 600.ms,
+                          curve: Curves.fastOutSlowIn,
+                        ),
                   ),
                 ],
               ),
