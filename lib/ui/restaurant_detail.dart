@@ -57,7 +57,16 @@ class RestaurantDetail extends StatelessWidget {
                               Text(
                                 restaurant.name!,
                                 style: Theme.of(context).textTheme.headline5,
-                              ),
+                              )
+                                  .animate()
+                                  .fade(
+                                    duration: 850.ms,
+                                  )
+                                  .slideY(
+                                    begin: -0.3,
+                                    duration: 1200.ms,
+                                    curve: Curves.fastOutSlowIn,
+                                  ),
                               const SizedBox(
                                 height: 8,
                               ),
@@ -80,6 +89,15 @@ class RestaurantDetail extends StatelessWidget {
                                           color: const Color(0xFF616161),
                                         ),
                                   )
+                                      .animate()
+                                      .fade(
+                                        duration: 850.ms,
+                                      )
+                                      .slideY(
+                                        begin: -0.3,
+                                        duration: 1200.ms,
+                                        curve: Curves.fastOutSlowIn,
+                                      )
                                 ],
                               )
                             ],
@@ -96,6 +114,15 @@ class RestaurantDetail extends StatelessWidget {
                           ),
                           itemSize: 20,
                         )
+                            .animate()
+                            .fade(
+                              duration: 850.ms,
+                            )
+                            .slideY(
+                              begin: -0.3,
+                              duration: 1200.ms,
+                              curve: Curves.fastOutSlowIn,
+                            )
                       ],
                     ),
                     const SizedBox(
@@ -112,7 +139,16 @@ class RestaurantDetail extends StatelessWidget {
                       restaurant.description!,
                       textAlign: TextAlign.justify,
                       style: Theme.of(context).textTheme.bodyText2,
-                    ),
+                    )
+                        .animate()
+                        .fade(
+                          duration: 850.ms,
+                        )
+                        .slideY(
+                          begin: -0.3,
+                          duration: 1200.ms,
+                          curve: Curves.fastOutSlowIn,
+                        ),
                     const SizedBox(
                       height: 24,
                     ),
@@ -152,7 +188,9 @@ class RestaurantDetail extends StatelessWidget {
                         ),
                         children: restaurant.menus!.drinks!.map((drink) {
                           return _itemMenu(
-                              'assets/images/drink.png', drink.name);
+                            'assets/images/drink.png',
+                            drink.name,
+                          );
                         }).toList(),
                       ),
                     )
@@ -201,7 +239,7 @@ class RestaurantDetail extends StatelessWidget {
           .fade(
             duration: 750.ms,
           )
-          .slideY(
+          .slideX(
             begin: -0.3,
             duration: 600.ms,
             curve: Curves.fastOutSlowIn,
@@ -236,7 +274,11 @@ class RestaurantDetail extends StatelessWidget {
               fit: BoxFit.contain,
               height: 80,
               width: 80,
-            ),
+            ).animate().shake(
+                  // delay: 500.ms,
+                  hz: 4,
+                  duration: 1000.ms,
+                ),
           ),
           const SizedBox(
             height: 8,
