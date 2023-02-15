@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:tosik/data/model/restaurant_model.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
