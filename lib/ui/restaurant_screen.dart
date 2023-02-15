@@ -10,7 +10,10 @@ class RestaurantScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tongkrongan Asik"),
+        title: const Text(
+          "Tongkrongan Asik",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: FutureBuilder<String>(
         future: DefaultAssetBundle.of(context)

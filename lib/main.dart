@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
               secondary: secondaryColor,
             ),
         textTheme: myTextTheme,
-        appBarTheme: const AppBarTheme(elevation: 2),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+        ),
       ),
       initialRoute: RestaurantScreen.routeName,
       routes: {
