@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:tosik/data/model/restaurant_model.dart';
 import 'package:tosik/ui/restaurant_detail.dart';
@@ -10,9 +12,11 @@ class RestaurantScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Tongkrongan Asik",
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: const Center(
+          child: Text(
+            "Tongkrongan Asik",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ),
       body: FutureBuilder<String>(
