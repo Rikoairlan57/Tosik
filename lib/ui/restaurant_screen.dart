@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:tosik/data/model/restaurant_model.dart';
+import 'package:tosik/data/model/restaurant_list_model.dart';
 import 'package:tosik/ui/restaurant_detail.dart';
 
 class RestaurantScreen extends StatelessWidget {

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:tosik/data/model/restaurant_model.dart';
+import 'package:tosik/data/model/restaurant_list_model.dart';
 
 class RestaurantDetail extends StatelessWidget {
   static const routeName = '/restaurant_detail';
