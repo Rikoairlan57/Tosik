@@ -70,7 +70,16 @@ class RestaurantCard extends StatelessWidget {
                         hz: 4,
                         duration: 500.ms,
                       ),
-                ),
+                )
+                    .animate()
+                    .fade(
+                      duration: 750.ms,
+                    )
+                    .slideY(
+                      begin: -0.3,
+                      duration: 600.ms,
+                      curve: Curves.fastOutSlowIn,
+                    ),
               ),
             ),
             const SizedBox(
