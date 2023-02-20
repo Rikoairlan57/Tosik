@@ -24,7 +24,7 @@ class RestaurantDetail extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Hero(
-                tag: restaurant.pictureId!,
+                tag: restaurant.pictureId,
                 child: Container(
                   height: heightScreen * 0.4,
                   width: widthScreen,
@@ -36,7 +36,7 @@ class RestaurantDetail extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     image: DecorationImage(
-                      image: NetworkImage(restaurant.pictureId!),
+                      image: NetworkImage(restaurant.pictureId),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -55,7 +55,7 @@ class RestaurantDetail extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                restaurant.name!,
+                                restaurant.name,
                                 style: Theme.of(context).textTheme.headline5,
                               )
                                   .animate()
@@ -107,7 +107,7 @@ class RestaurantDetail extends StatelessWidget {
                           width: 8,
                         ),
                         RatingBarIndicator(
-                          rating: restaurant.rating ?? 0,
+                          rating: restaurant.rating,
                           itemBuilder: (context, index) => const Icon(
                             Icons.star,
                             color: Colors.amber,
@@ -136,7 +136,7 @@ class RestaurantDetail extends StatelessWidget {
                       height: 4,
                     ),
                     Text(
-                      restaurant.description!,
+                      restaurant.description,
                       textAlign: TextAlign.justify,
                       style: Theme.of(context).textTheme.bodyText2,
                     )
@@ -167,12 +167,6 @@ class RestaurantDetail extends StatelessWidget {
                           horizontal: 4,
                           vertical: 4,
                         ),
-                        children: restaurant.menus!.foods!.map((food) {
-                          return _itemMenu(
-                            'assets/images/food.png',
-                            food.name,
-                          );
-                        }).toList(),
                       ),
                     ),
                     const SizedBox(
@@ -186,12 +180,6 @@ class RestaurantDetail extends StatelessWidget {
                           horizontal: 4,
                           vertical: 4,
                         ),
-                        children: restaurant.menus!.drinks!.map((drink) {
-                          return _itemMenu(
-                            'assets/images/drink.png',
-                            drink.name,
-                          );
-                        }).toList(),
                       ),
                     )
                   ],
