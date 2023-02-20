@@ -65,7 +65,11 @@ class RestaurantCard extends StatelessWidget {
                         color: Colors.grey[400],
                       );
                     },
-                  ),
+                  ).animate().shake(
+                        // delay: 500.ms,
+                        hz: 4,
+                        duration: 500.ms,
+                      ),
                 ),
               ),
             ),
