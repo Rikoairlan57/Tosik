@@ -10,7 +10,7 @@ class TextMessage extends StatelessWidget {
     super.key,
     required this.image,
     required this.message,
-    required this.onPressed,
+    this.onPressed,
   });
 
   @override

@@ -16,6 +16,8 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   easy_splash_screen: ^1.0.4
   flutter_animate: ^3.1.0
+  lottie: ^2.2.0
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +32,7 @@ flutter:
   assets:
     - assets/local_restaurant.json
     - assets/images/
+    - assets/lottie/
 
   # example:
   # fonts:
