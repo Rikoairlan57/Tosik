@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tosik/data/api/api_service.dart';
 import 'package:tosik/data/model/restaurant_detail_model.dart';
 import 'package:tosik/enum/result_state.dart';
-import 'package:tosik/ui/restaurant_detail.dart';
 
 class RestaurantDetailProvider extends ChangeNotifier {
   final ApiService apiService;
@@ -19,19 +18,26 @@ class RestaurantDetailProvider extends ChangeNotifier {
   late ResultState _state;
   String _message = '';
 
+  RestaurantDetailResult get result => _restaurantDetailResult;
+  ResultState get state => _state;
+  String get message => _message;
+
   Future<dynamic> fetchDetailRestaurant(String restaurantId) async {
     try {
       _state = ResultState.loading;
       notifyListeners();
+
       final restaurantDetail =
           await apiService.getRestaurantDetail(restaurantId);
       _state = ResultState.hasData;
       notifyListeners();
+
       return _restaurantDetailResult = restaurantDetail;
     } catch (e) {
       _state = ResultState.error;
       notifyListeners();
-      return _message = "Error $e";
+
+      return _message = 'Error --> $e';
     }
   }
 
@@ -47,14 +53,16 @@ class RestaurantDetailProvider extends ChangeNotifier {
         review: review,
       );
       if (postReviewResult.error == false &&
-          postReviewResult.message == "success") {
+          postReviewResult.message == 'success') {
         fetchDetailRestaurant(id);
+
         return ResultState.success;
       }
     } catch (e) {
       _state = ResultState.error;
       notifyListeners();
-      return _message = "Error $e";
+
+      return _message = 'Error --> $e';
     }
   }
 }

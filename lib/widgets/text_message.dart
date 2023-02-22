@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class TextMessage extends StatelessWidget {
   final String image;
@@ -19,7 +20,7 @@ class TextMessage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
+          Lottie.asset(
             image,
             height: 150,
             width: 150,
