@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class CardMenu extends StatelessWidget {
   final String image;
@@ -36,7 +37,11 @@ class CardMenu extends StatelessWidget {
               fit: BoxFit.contain,
               height: 80,
               width: 60,
-            ),
+            ).animate().shake(
+                  // delay: 500.ms,
+                  hz: 6,
+                  duration: 500.ms,
+                ),
           ),
           const SizedBox(height: 8),
           Expanded(

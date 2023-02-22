@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
 import 'package:tosik/ui/restaurant_detail_screen.dart';
 
@@ -65,8 +65,21 @@ class CardRestaurant extends StatelessWidget {
                         color: Colors.grey[400],
                       );
                     },
-                  ),
-                ),
+                  ).animate().shake(
+                        // delay: 500.ms,
+                        hz: 4,
+                        duration: 500.ms,
+                      ),
+                )
+                    .animate()
+                    .fade(
+                      duration: 750.ms,
+                    )
+                    .slideY(
+                      begin: -0.3,
+                      duration: 600.ms,
+                      curve: Curves.fastOutSlowIn,
+                    ),
               ),
             ),
             const SizedBox(width: 15),
@@ -83,7 +96,16 @@ class CardRestaurant extends StatelessWidget {
                         .textTheme
                         .subtitle2!
                         .copyWith(fontWeight: FontWeight.w500, fontSize: 18),
-                  ),
+                  )
+                      .animate()
+                      .fade(
+                        duration: 750.ms,
+                      )
+                      .slideX(
+                        begin: -0.3,
+                        duration: 600.ms,
+                        curve: Curves.fastOutSlowIn,
+                      ),
                   const SizedBox(height: 8),
                   Row(
                     children: [
@@ -91,7 +113,16 @@ class CardRestaurant extends StatelessWidget {
                         Icons.location_pin,
                         size: 18,
                         color: Colors.grey[400],
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 750.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 600.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                       const SizedBox(width: 4),
                       Text(
                         restaurant.city,
@@ -99,9 +130,27 @@ class CardRestaurant extends StatelessWidget {
                             .textTheme
                             .bodyText2!
                             .copyWith(color: const Color(0xFF616161)),
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 750.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 600.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                     ],
-                  ),
+                  )
+                      .animate()
+                      .fade(
+                        duration: 750.ms,
+                      )
+                      .slideX(
+                        begin: -0.3,
+                        duration: 600.ms,
+                        curve: Curves.fastOutSlowIn,
+                      ),
                   const SizedBox(height: 20),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,7 +159,16 @@ class CardRestaurant extends StatelessWidget {
                         Icons.star,
                         size: 18,
                         color: Colors.amber,
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 750.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 600.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                       const SizedBox(width: 4),
                       Text(
                         '${restaurant.rating}',
@@ -118,7 +176,16 @@ class CardRestaurant extends StatelessWidget {
                             .textTheme
                             .bodyText2!
                             .copyWith(color: const Color(0xFF616161)),
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 750.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 600.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                     ],
                   ),
                 ],
