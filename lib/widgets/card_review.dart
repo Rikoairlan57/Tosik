@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
-import '../enum/result_state.dart';
-import '../provider/restaurant_detail_provider.dart';
+import 'package:tosik/enum/result_state.dart';
+import 'package:tosik/provider/restaurant_detail_provider.dart';
 
 class CardReview extends StatelessWidget {
   final RestaurantDetailProvider provider;

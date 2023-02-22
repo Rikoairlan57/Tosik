@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../data/api/api_service.dart';
-import '../provider/restaurant_search_provider.dart';
-import '../enum/result_state.dart';
-import '../widgets/card_restaurant.dart';
-import '../widgets/text_message.dart';
-import '../widgets/loading.dart';
+import 'package:tosik/data/api/api_service.dart';
+import 'package:tosik/provider/restaurant_search_provider.dart';
+import 'package:tosik/enum/result_state.dart';
+import 'package:tosik/widgets/card_restaurant.dart';
+import 'package:tosik/widgets/text_message.dart';
+import 'package:tosik/widgets/loading.dart';
 
 class SearchScreen extends StatelessWidget {
   static const String routeName = '/restaurant_search';

@@ -3,10 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tosik/widgets/card_review.dart';
-
-import '../common/styles.dart';
-import '../data/model/restaurant_detail_model.dart';
-import '../provider/restaurant_detail_provider.dart';
+import 'package:tosik/common/styles.dart';
+import 'package:tosik/data/model/restaurant_detail_model.dart';
+import 'package:tosik/provider/restaurant_detail_provider.dart';
 
 class ReviewCustomer extends StatelessWidget {
   final RestaurantDetailModel restaurant;
