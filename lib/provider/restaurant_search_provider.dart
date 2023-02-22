@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../data/api/api_service.dart';
-import '../data/model/restaurant_search_model.dart';
-import '../enum/result_state.dart';
+import 'package:tosik/data/api/api_service.dart';
+import 'package:tosik/data/model/restaurant_search_model.dart';
+import 'package:tosik/enum/result_state.dart';
 
 class RestaurantSearchProvider extends ChangeNotifier {
   final ApiService apiService;
