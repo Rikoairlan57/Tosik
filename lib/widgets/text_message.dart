@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class TextMessage extends StatelessWidget {
-  final String image;
+  final String lottie;
   final String message;
   final Function()? onPressed;
   const TextMessage({
     super.key,
-    required this.image,
+    required this.lottie,
     required this.message,
     this.onPressed,
   });
@@ -21,7 +21,7 @@ class TextMessage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Lottie.asset(
-            image,
+            lottie,
             height: 150,
             width: 150,
           ),

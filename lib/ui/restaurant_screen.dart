@@ -65,12 +65,12 @@ class RestaurantScreen extends StatelessWidget {
             );
           case ResultState.noData:
             return const TextMessage(
-              image: 'assets/lottie/85023-no-data.json',
+              lottie: 'assets/lottie/85023-no-data.json',
               message: 'Data Kosong',
             );
           case ResultState.error:
             return TextMessage(
-              image: 'assets/lottie/12955-no-internet-connection.json',
+              lottie: 'assets/lottie/12955-no-internet-connection.json',
               message: 'Koneksi Terputus',
               onPressed: () => provider.fetchAllRestaurant(),
             );

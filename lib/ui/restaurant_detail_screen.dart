@@ -68,7 +68,7 @@ class RestaurantDetailScreen extends StatelessWidget {
                       );
                     case ResultState.error:
                       return TextMessage(
-                        image:
+                        lottie:
                             'assets/lottie/12955-no-internet-connection.json',
                         message: 'Koneksi Terputus',
                         onPressed: () =>

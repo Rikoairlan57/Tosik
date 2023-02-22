@@ -43,7 +43,7 @@ class SearchScreen extends StatelessWidget {
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.all(16),
                     border: InputBorder.none,
-                    hintText: 'Search by name',
+                    hintText: 'Search restaurant',
                     suffixIcon: Icon(
                       Icons.search,
                       color: Colors.grey,
@@ -80,18 +80,18 @@ class SearchScreen extends StatelessWidget {
                         );
                       case ResultState.noData:
                         return const TextMessage(
-                          image: 'assets/lottie/96526-search-not-found.json',
+                          lottie: 'assets/lottie/96526-search-not-found.json',
                           message: 'Oopss... Pencarian tidak ditemukan',
                         );
                       case ResultState.error:
                         return const TextMessage(
-                          image:
+                          lottie:
                               'assets/lottie/12955-no-internet-connection.json',
                           message: 'Koneksi Terputus',
                         );
                       default:
                         return const TextMessage(
-                          image: 'assets/lottie/98877-search.json',
+                          lottie: 'assets/lottie/98877-search.json',
                           message: 'Silahkan lakukan pencarian...',
                         );
                     }
