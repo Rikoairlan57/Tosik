@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../enum/result_state.dart';
 import '../provider/restaurant_detail_provider.dart';
@@ -26,7 +29,18 @@ class CardReview extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       insetPadding: const EdgeInsets.all(16),
-      title: const Text('Tambah Review'),
+      title: const Text(
+        'Tambah Review',
+      )
+          .animate()
+          .fade(
+            duration: 850.ms,
+          )
+          .slideY(
+            begin: -0.3,
+            duration: 1200.ms,
+            curve: Curves.fastOutSlowIn,
+          ),
       titleTextStyle: Theme.of(context).textTheme.headline6,
       content: Form(
         key: _formKey,
@@ -51,7 +65,16 @@ class CardReview extends StatelessWidget {
                     }
                     return null;
                   },
-                ),
+                )
+                    .animate()
+                    .fade(
+                      duration: 850.ms,
+                    )
+                    .slideX(
+                      begin: -0.3,
+                      duration: 1200.ms,
+                      curve: Curves.fastOutSlowIn,
+                    ),
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _reviewController,
@@ -69,7 +92,16 @@ class CardReview extends StatelessWidget {
                     }
                     return null;
                   },
-                ),
+                )
+                    .animate()
+                    .fade(
+                      duration: 850.ms,
+                    )
+                    .slideX(
+                      begin: 0.3,
+                      duration: 1200.ms,
+                      curve: Curves.fastOutSlowIn,
+                    ),
               ],
             ),
           ),
@@ -80,7 +112,16 @@ class CardReview extends StatelessWidget {
         TextButton(
           onPressed: () => Navigator.pop(context),
           child: const Text('Batal'),
-        ),
+        )
+            .animate()
+            .fade(
+              duration: 850.ms,
+            )
+            .slideY(
+              begin: 0.3,
+              duration: 1200.ms,
+              curve: Curves.fastOutSlowIn,
+            ),
         ElevatedButton(
           onPressed: () {
             FormState? form = _formKey.currentState;
@@ -109,7 +150,16 @@ class CardReview extends StatelessWidget {
             'Tambah',
             style: TextStyle(color: Colors.white),
           ),
-        ),
+        )
+            .animate()
+            .fade(
+              duration: 850.ms,
+            )
+            .slideY(
+              begin: 0.3,
+              duration: 1200.ms,
+              curve: Curves.fastOutSlowIn,
+            ),
       ],
     );
   }

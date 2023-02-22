@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tosik/widgets/card_review.dart';
 
 import '../common/styles.dart';
@@ -29,12 +32,30 @@ class ReviewCustomer extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.close),
                     onPressed: () => Navigator.pop(context),
-                  ),
+                  )
+                      .animate()
+                      .fade(
+                        duration: 850.ms,
+                      )
+                      .slideX(
+                        begin: -0.5,
+                        duration: 1200.ms,
+                        curve: Curves.fastOutSlowIn,
+                      ),
                   const SizedBox(width: 16),
                   Text(
                     'Review',
                     style: Theme.of(context).textTheme.headline6,
-                  ),
+                  )
+                      .animate()
+                      .fade(
+                        duration: 850.ms,
+                      )
+                      .slideX(
+                        begin: -0.3,
+                        duration: 1200.ms,
+                        curve: Curves.fastOutSlowIn,
+                      ),
                 ],
               ),
               Padding(
@@ -56,7 +77,16 @@ class ReviewCustomer extends StatelessWidget {
                   child: const Text(
                     'Tambah Review',
                     style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  )
+                      .animate()
+                      .fade(
+                        duration: 850.ms,
+                      )
+                      .slideX(
+                        begin: 0.3,
+                        duration: 1200.ms,
+                        curve: Curves.fastOutSlowIn,
+                      ),
                 ),
               ),
             ],
@@ -81,10 +111,44 @@ class ReviewCustomer extends StatelessWidget {
                     ListTile(
                       leading: const CircleAvatar(
                         backgroundColor: primaryColor,
-                        child: Icon(Icons.person, color: Colors.white),
-                      ),
-                      title: Text(review.name),
-                      subtitle: Text(review.date),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 850.ms,
+                          )
+                          .slideX(
+                            begin: -0.3,
+                            duration: 1200.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
+                      title: Text(
+                        review.name,
+                      )
+                          .animate()
+                          .fade(
+                            duration: 850.ms,
+                          )
+                          .slideY(
+                            begin: -0.3,
+                            duration: 1200.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
+                      subtitle: Text(
+                        review.date,
+                      )
+                          .animate()
+                          .fade(
+                            duration: 850.ms,
+                          )
+                          .slideY(
+                            begin: 0.3,
+                            duration: 1200.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                     ),
                     const Divider(height: 1),
                     Padding(
@@ -95,11 +159,29 @@ class ReviewCustomer extends StatelessWidget {
                             .textTheme
                             .subtitle1!
                             .copyWith(fontWeight: FontWeight.bold),
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 850.ms,
+                          )
+                          .slideX(
+                            begin: 0.3,
+                            duration: 1200.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                     ),
                   ],
                 ),
-              );
+              )
+                  .animate()
+                  .fade(
+                    duration: 850.ms,
+                  )
+                  .slideY(
+                    begin: 0.3,
+                    duration: 1200.ms,
+                    curve: Curves.fastOutSlowIn,
+                  );
             }).toList(),
           ),
         ),

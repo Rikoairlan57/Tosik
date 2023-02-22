@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tosik/common/styles.dart';
 import 'package:tosik/provider/restaurant_detail_provider.dart';
@@ -35,7 +36,16 @@ class ContentRestaurant extends StatelessWidget {
                     Text(
                       restaurant.name,
                       style: Theme.of(context).textTheme.headline5,
-                    ),
+                    )
+                        .animate()
+                        .fade(
+                          duration: 850.ms,
+                        )
+                        .slideY(
+                          begin: -0.3,
+                          duration: 1200.ms,
+                          curve: Curves.fastOutSlowIn,
+                        ),
                     const SizedBox(height: 8),
                     Row(
                       children: [
@@ -43,7 +53,16 @@ class ContentRestaurant extends StatelessWidget {
                           Icons.location_pin,
                           size: 18,
                           color: Colors.grey[400],
-                        ),
+                        )
+                            .animate()
+                            .fade(
+                              duration: 850.ms,
+                            )
+                            .slideY(
+                              begin: -0.3,
+                              duration: 1200.ms,
+                              curve: Curves.fastOutSlowIn,
+                            ),
                         const SizedBox(width: 4),
                         Text(
                           restaurant.city,
@@ -51,7 +70,16 @@ class ContentRestaurant extends StatelessWidget {
                               .textTheme
                               .bodyText2!
                               .copyWith(color: const Color(0xFF616161)),
-                        ),
+                        )
+                            .animate()
+                            .fade(
+                              duration: 850.ms,
+                            )
+                            .slideY(
+                              begin: -0.3,
+                              duration: 1200.ms,
+                              curve: Curves.fastOutSlowIn,
+                            ),
                       ],
                     ),
                   ],
@@ -67,7 +95,16 @@ class ContentRestaurant extends StatelessWidget {
                       Text(
                         '${restaurant.rating}',
                         style: Theme.of(context).textTheme.bodyText1,
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 850.ms,
+                          )
+                          .slideY(
+                            begin: -0.3,
+                            duration: 1200.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                       const SizedBox(width: 4),
                       RatingBarIndicator(
                         rating: restaurant.rating,
@@ -76,7 +113,16 @@ class ContentRestaurant extends StatelessWidget {
                           color: Colors.amber,
                         ),
                         itemSize: 18,
-                      ),
+                      )
+                          .animate()
+                          .fade(
+                            duration: 850.ms,
+                          )
+                          .slideY(
+                            begin: -0.3,
+                            duration: 1200.ms,
+                            curve: Curves.fastOutSlowIn,
+                          ),
                     ],
                   ),
                   const SizedBox(height: 4),
@@ -104,7 +150,16 @@ class ContentRestaurant extends StatelessWidget {
                       style: Theme.of(context).textTheme.subtitle1!.copyWith(
                           color: primaryColor,
                           decoration: TextDecoration.underline),
-                    ),
+                    )
+                        .animate()
+                        .fade(
+                          duration: 850.ms,
+                        )
+                        .slideY(
+                          begin: -0.3,
+                          duration: 1200.ms,
+                          curve: Curves.fastOutSlowIn,
+                        ),
                   ),
                 ],
               ),
@@ -114,7 +169,16 @@ class ContentRestaurant extends StatelessWidget {
           Text(
             'Kategori :',
             style: Theme.of(context).textTheme.bodyText1,
-          ),
+          )
+              .animate()
+              .fade(
+                duration: 850.ms,
+              )
+              .slideX(
+                begin: -0.3,
+                duration: 1200.ms,
+                curve: Curves.fastOutSlowIn,
+              ),
           const SizedBox(height: 8),
           SizedBox(
             height: 35,
@@ -135,9 +199,27 @@ class ContentRestaurant extends StatelessWidget {
                       category.name,
                       style: Theme.of(context).textTheme.subtitle1!.copyWith(
                           fontWeight: FontWeight.w600, color: Colors.white),
-                    ),
+                    )
+                        .animate()
+                        .fade(
+                          duration: 850.ms,
+                        )
+                        .slideX(
+                          begin: -0.3,
+                          duration: 1200.ms,
+                          curve: Curves.fastOutSlowIn,
+                        ),
                   ),
-                );
+                )
+                    .animate()
+                    .fade(
+                      duration: 850.ms,
+                    )
+                    .slideX(
+                      begin: -0.3,
+                      duration: 1200.ms,
+                      curve: Curves.fastOutSlowIn,
+                    );
               }).toList(),
             ),
           ),
@@ -145,18 +227,45 @@ class ContentRestaurant extends StatelessWidget {
           Text(
             'Deskripsi :',
             style: Theme.of(context).textTheme.bodyText1,
-          ),
+          )
+              .animate()
+              .fade(
+                duration: 850.ms,
+              )
+              .slideX(
+                begin: -0.3,
+                duration: 1200.ms,
+                curve: Curves.fastOutSlowIn,
+              ),
           const SizedBox(height: 4),
           Text(
             restaurant.description,
             textAlign: TextAlign.justify,
             style: Theme.of(context).textTheme.bodyText2,
-          ),
+          )
+              .animate()
+              .fade(
+                duration: 850.ms,
+              )
+              .slideY(
+                begin: 0.4,
+                duration: 1200.ms,
+                curve: Curves.fastOutSlowIn,
+              ),
           const SizedBox(height: 24),
           Text(
             'Menu Makanan :',
             style: Theme.of(context).textTheme.bodyText1,
-          ),
+          )
+              .animate()
+              .fade(
+                duration: 850.ms,
+              )
+              .slideX(
+                begin: -0.3,
+                duration: 1200.ms,
+                curve: Curves.fastOutSlowIn,
+              ),
           const SizedBox(height: 4),
           SizedBox(
             height: 180,
@@ -178,7 +287,16 @@ class ContentRestaurant extends StatelessWidget {
           Text(
             'Menu Minuman :',
             style: Theme.of(context).textTheme.bodyText1,
-          ),
+          )
+              .animate()
+              .fade(
+                duration: 850.ms,
+              )
+              .slideX(
+                begin: -0.3,
+                duration: 1200.ms,
+                curve: Curves.fastOutSlowIn,
+              ),
           const SizedBox(height: 4),
           SizedBox(
             height: 180,
