@@ -1,16 +1,13 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:tosik/data/api/api_service.dart';
-import 'package:tosik/data/model/restaurant_list_model.dart';
 import 'package:tosik/enum/result_state.dart';
 import 'package:tosik/provider/restaurant_list_provider.dart';
-import 'package:tosik/ui/restaurant_detail.dart';
 import 'package:provider/provider.dart';
 import 'package:tosik/ui/search_screen.dart';
 import 'package:tosik/widgets/loading.dart';
-import 'package:tosik/widgets/restaurant_card.dart';
+import 'package:tosik/widgets/card_restaurant.dart';
 import 'package:tosik/widgets/text_message.dart';
 
 class RestaurantScreen extends StatelessWidget {
@@ -63,17 +60,17 @@ class RestaurantScreen extends StatelessWidget {
               itemCount: provider.result.count,
               itemBuilder: (_, index) {
                 final restaurant = provider.result.restaurants[index];
-                return RestaurantCard(restaurants: restaurant);
+                return CardRestaurant(restaurant: restaurant);
               },
             );
           case ResultState.noData:
             return const TextMessage(
-              image: 'assets/images/no-data.png',
+              image: 'assets/lottie/85023-no-data.json',
               message: 'Data Kosong',
             );
           case ResultState.error:
             return TextMessage(
-              image: 'assets/images/no-internet.png',
+              image: 'assets/lottie/12955-no-internet-connection.json',
               message: 'Koneksi Terputus',
               onPressed: () => provider.fetchAllRestaurant(),
             );

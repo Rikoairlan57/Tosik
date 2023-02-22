@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tosik/common/styles.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
-import 'package:tosik/ui/restaurant_detail.dart';
+import 'package:tosik/ui/restaurant_detail_screen.dart';
 import 'package:tosik/ui/restaurant_screen.dart';
 import 'package:tosik/ui/search_screen.dart';
 import 'package:tosik/ui/splash_screen.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: Theme.of(context).colorScheme.copyWith(
               primary: primaryColor,
-              onPrimary: Colors.black,
+              onPrimary: Colors.white,
               secondary: secondaryColor,
             ),
         scaffoldBackgroundColor: Colors.white,
@@ -32,9 +32,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: SplashScreen.routeName,
       routes: {
-        SplashScreen.routeName: (context) => const SplashScreen(),
-        RestaurantScreen.routeName: (context) => const RestaurantScreen(),
-        RestaurantDetail.routeName: (context) => RestaurantDetail(
+        SplashScreen.routeName: (_) => const SplashScreen(),
+        RestaurantScreen.routeName: (_) => const RestaurantScreen(),
+        RestaurantDetailScreen.routeName: (context) => RestaurantDetailScreen(
             restaurant:
                 ModalRoute.of(context)?.settings.arguments as RestaurantModel),
         SearchScreen.routeName: (_) => const SearchScreen(),

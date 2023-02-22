@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tosik/data/api/api_service.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
 import 'package:tosik/enum/result_state.dart';
-import 'package:flutter/material.dart';
 
 class RestaurantListProvider extends ChangeNotifier {
   final ApiService apiService;
@@ -28,17 +27,19 @@ class RestaurantListProvider extends ChangeNotifier {
       if (restaurantList.count == 0 && restaurantList.restaurants.isEmpty) {
         _state = ResultState.noData;
         notifyListeners();
-        return _message = "Empty Data";
+
+        return _message = 'Empty Data';
       } else {
         _state = ResultState.hasData;
         notifyListeners();
+
         return _restaurantListResult = restaurantList;
       }
-    } catch (x) {
+    } catch (e) {
       _state = ResultState.error;
       notifyListeners();
 
-      return _message = 'Error $x';
+      return _message = 'Error --> $e';
     }
   }
 }
