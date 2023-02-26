@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 import 'package:tosik/data/api/api_service.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
 import 'package:tosik/enum/result_state.dart';
@@ -22,7 +23,7 @@ class RestaurantDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<RestaurantDetailProvider>(
       create: (_) => RestaurantDetailProvider(
-        apiService: ApiService(),
+        apiService: ApiService(http.Client()),
         restaurantId: restaurant.id,
       ),
       child: _buildContent(context),
@@ -30,57 +31,29 @@ class RestaurantDetailScreen extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context) {
-    final heightScreen = MediaQuery.of(context).size.height;
-    final widthScreen = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Hero(
-                tag: restaurant.pictureId,
-                child: Container(
-                  height: heightScreen * 0.4,
-                  width: widthScreen,
-                  margin: const EdgeInsets.only(left: 12, right: 12, top: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://restaurant-api.dicoding.dev/images/large/${restaurant.pictureId}',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ),
-              Consumer<RestaurantDetailProvider>(
-                builder: (_, provider, __) {
-                  switch (provider.state) {
-                    case ResultState.loading:
-                      return const Loading();
-                    case ResultState.hasData:
-                      return ContentRestaurant(
-                        provider: provider,
-                        restaurant: provider.result.restaurant,
-                      );
-                    case ResultState.error:
-                      return TextMessage(
-                        lottie:
-                            'assets/lottie/12955-no-internet-connection.json',
-                        message: 'Koneksi Terputus',
-                        onPressed: () =>
-                            provider.fetchDetailRestaurant(restaurant.id),
-                      );
-                    default:
-                      return const SizedBox();
-                  }
-                },
-              ),
-            ],
-          ),
+        child: Consumer<RestaurantDetailProvider>(
+          builder: (_, provider, __) {
+            switch (provider.state) {
+              case ResultState.loading:
+                return const Loading();
+              case ResultState.hasData:
+                return ContentRestaurant(
+                  provider: provider,
+                  restaurant: provider.result.restaurant,
+                );
+              case ResultState.error:
+                return TextMessage(
+                  lottie: 'assets/lottie/12955-no-internet-connection.json',
+                  message: 'Koneksi Terputus',
+                  onPressed: () =>
+                      provider.fetchDetailRestaurant(restaurant.id),
+                );
+              default:
+                return const SizedBox();
+            }
+          },
         ),
       ),
       floatingActionButton: _backButton(context),

@@ -8,6 +8,10 @@ import 'package:tosik/data/model/review_model.dart';
 import 'package:tosik/data/model/restaurant_search_model.dart';
 
 class ApiService {
+  final http.Client client;
+
+  ApiService(this.client);
+
   static const String _baseurl = 'https://restaurant-api.dicoding.dev';
 
   Future<RestaurantListResult> getRestaurantList() async {
