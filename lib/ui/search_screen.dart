@@ -6,6 +6,7 @@ import 'package:tosik/enum/result_state.dart';
 import 'package:tosik/widgets/card_restaurant.dart';
 import 'package:tosik/widgets/text_message.dart';
 import 'package:tosik/widgets/loading.dart';
+import 'package:http/http.dart' as http;
 
 class SearchScreen extends StatelessWidget {
   static const String routeName = '/restaurant_search';
@@ -15,7 +16,8 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => RestaurantSearchProvider(apiService: ApiService()),
+      create: (_) =>
+          RestaurantSearchProvider(apiService: ApiService(http.Client())),
       builder: (context, _) {
         return Scaffold(
           resizeToAvoidBottomInset: false,

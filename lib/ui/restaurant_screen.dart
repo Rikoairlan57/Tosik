@@ -9,6 +9,7 @@ import 'package:tosik/ui/search_screen.dart';
 import 'package:tosik/widgets/loading.dart';
 import 'package:tosik/widgets/card_restaurant.dart';
 import 'package:tosik/widgets/text_message.dart';
+import 'package:http/http.dart' as http;
 
 class RestaurantScreen extends StatelessWidget {
   const RestaurantScreen({super.key});
@@ -18,7 +19,7 @@ class RestaurantScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<RestaurantListProvider>(
       create: (_) => RestaurantListProvider(
-        apiService: ApiService(),
+        apiService: ApiService(http.Client()),
       ),
       child: Scaffold(
         appBar: _buildAppBar(context),
