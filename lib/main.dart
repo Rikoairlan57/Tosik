@@ -1,4 +1,7 @@
+import 'dart:io';
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tosik/common/styles.dart';
@@ -16,9 +19,27 @@ import 'package:http/http.dart' as http;
 import 'common/navigation.dart';
 import 'data/api/api_service.dart';
 import 'data/db/database_helper.dart';
+import 'provider/scheduling_provider.dart';
 import 'ui/home_screen.dart';
+import 'utils/background_service.dart';
+import 'utils/notification_helper.dart';
 
-void main() {
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final NotificationHelper notificationHelper = NotificationHelper();
+  final BackgroundService service = BackgroundService();
+
+  service.initializeIsolate();
+
+  if (Platform.isAndroid) {
+    await AndroidAlarmManager.initialize();
+  }
+
+  await notificationHelper.initNotifications(flutterLocalNotificationsPlugin);
+
   runApp(const MyApp());
 }
 
@@ -30,17 +51,26 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => DatabaseProvider(databaseHelper: DatabaseHelper()),
+          create: (_) => DatabaseProvider(
+            databaseHelper: DatabaseHelper(),
+          ),
         ),
         ChangeNotifierProvider(
           create: (_) => RestaurantListProvider(
-            apiService: ApiService(http.Client()),
+            apiService: ApiService(
+              http.Client(),
+            ),
           ),
         ),
         ChangeNotifierProvider(
           create: (_) => RestaurantSearchProvider(
-            apiService: ApiService(http.Client()),
+            apiService: ApiService(
+              http.Client(),
+            ),
           ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SchedulingProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => PreferencesProvider(
