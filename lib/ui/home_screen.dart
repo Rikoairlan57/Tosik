@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tosik/ui/restaurant_detail_screen.dart';
 
 import '../common/styles.dart';
-
+import '../utils/notification_helper.dart';
 import 'restaurant_favorites_screen.dart';
 import 'restaurant_screen.dart';
 import 'setting_screen.dart';
@@ -17,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _bottonNavIndex = 0;
+
+  final NotificationHelper _notificationHelper = NotificationHelper();
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = const [
     BottomNavigationBarItem(
@@ -46,6 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _notificationHelper
+        .configureSelectNotificationSubject(RestaurantDetailScreen.routeName);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _listWidget[_bottonNavIndex],
@@ -56,5 +66,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onBottomNavTapped,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    selectNotificationSubject.close();
+    super.dispose();
   }
 }
