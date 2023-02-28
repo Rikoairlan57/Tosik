@@ -1,4 +1,4 @@
-import 'package:tosik/data/model/restaurant_detail_model.dart';
+import 'package:tosik/data/api/customer_reviews.dart';
 
 class ReviewResult {
   ReviewResult({
