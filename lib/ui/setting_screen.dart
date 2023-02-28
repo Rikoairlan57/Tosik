@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../provider/preferences_provider.dart';
-import '../provider/scheduling_provider.dart';
+import 'package:tosik/provider/preferences_provider.dart';
+import 'package:tosik/provider/scheduling_provider.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

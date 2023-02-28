@@ -1,9 +1,7 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import '../provider/database_provider.dart';
+import 'package:tosik/provider/database_provider.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
 import 'package:tosik/ui/restaurant_detail_screen.dart';
 

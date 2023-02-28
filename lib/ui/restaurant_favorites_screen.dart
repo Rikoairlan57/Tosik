@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../provider/database_provider.dart';
-import '../enum/result_state.dart';
-import '../widgets/card_restaurant.dart';
-import '../widgets/text_message.dart';
+import 'package:tosik/provider/database_provider.dart';
+import 'package:tosik/enum/result_state.dart';
+import 'package:tosik/widgets/card_restaurant.dart';
+import 'package:tosik/widgets/text_message.dart';
 
 class RestaurantFavoritesScreen extends StatelessWidget {
   static const routeName = '/restaurant_favorites';

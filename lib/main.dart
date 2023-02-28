@@ -16,13 +16,13 @@ import 'package:tosik/ui/restaurant_screen.dart';
 import 'package:tosik/ui/search_screen.dart';
 import 'package:tosik/ui/splash_screen.dart';
 import 'package:http/http.dart' as http;
-import 'common/navigation.dart';
-import 'data/api/api_service.dart';
-import 'data/db/database_helper.dart';
-import 'provider/scheduling_provider.dart';
-import 'ui/home_screen.dart';
-import 'utils/background_service.dart';
-import 'utils/notification_helper.dart';
+import 'package:tosik/common/navigation.dart';
+import 'package:tosik/data/api/api_service.dart';
+import 'package:tosik/data/db/database_helper.dart';
+import 'package:tosik/provider/scheduling_provider.dart';
+import 'package:tosik/ui/home_screen.dart';
+import 'package:tosik/utils/background_service.dart';
+import 'package:tosik/utils/notification_helper.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();

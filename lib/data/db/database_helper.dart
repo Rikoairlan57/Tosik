@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-
-import '../model/restaurant_list_model.dart';
+import 'package:tosik/data/model/restaurant_list_model.dart';
 
 class DatabaseHelper {
   static DatabaseHelper? _instance;
