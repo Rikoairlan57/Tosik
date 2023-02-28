@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tosik/ui/restaurant_detail_screen.dart';
 import 'package:tosik/common/styles.dart';
 import 'package:tosik/utils/notification_helper.dart';
-import 'restaurant_favorites_screen.dart';
-import 'restaurant_screen.dart';
-import 'setting_screen.dart';
+import 'package:tosik/ui/restaurant_favorites_screen.dart';
+import 'package:tosik/ui/restaurant_screen.dart';
+import 'package:tosik/ui/setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home_page';
