@@ -12,11 +12,11 @@ class ApiService {
 
   ApiService(this.client);
 
-  static const String _baseurl = 'https://restaurant-api.dicoding.dev';
+  static const String baseurl = 'https://restaurant-api.dicoding.dev';
 
   Future<RestaurantListResult> getRestaurantList() async {
     final response = await http.get(
-      Uri.parse("$_baseurl/list"),
+      Uri.parse("$baseurl/list"),
     );
     if (response.statusCode == 200) {
       return RestaurantListResult.fromJson(
@@ -29,7 +29,7 @@ class ApiService {
 
   Future<RestaurantDetailResult> getRestaurantDetail(String id) async {
     final response = await http.get(
-      Uri.parse('$_baseurl/detail/$id'),
+      Uri.parse('$baseurl/detail/$id'),
     );
     if (response.statusCode == 200) {
       return RestaurantDetailResult.fromJson(
@@ -42,7 +42,7 @@ class ApiService {
 
   Future<RestaurantSearchResult> getRestaurantSearch(String query) async {
     final response = await http.get(
-      Uri.parse("$_baseurl/search?q=$query"),
+      Uri.parse("$baseurl/search?q=$query"),
     );
     if (response.statusCode == 200) {
       return RestaurantSearchResult.fromJson(
@@ -59,7 +59,7 @@ class ApiService {
     required String review,
   }) async {
     final response = await http.post(
-      Uri.parse("$_baseurl/review"),
+      Uri.parse("$baseurl/review"),
       body: jsonEncode(
         <String, String>{
           'id': id,
