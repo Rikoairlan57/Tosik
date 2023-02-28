@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../data/db/database_helper.dart';
-import '../enum/result_state.dart';
-import '../data/model/restaurant_list_model.dart';
+import 'package:tosik/data/db/database_helper.dart';
+import 'package:tosik/enum/result_state.dart';
+import 'package:tosik/data/model/restaurant_list_model.dart';
 
 class DatabaseProvider extends ChangeNotifier {
   final DatabaseHelper databaseHelper;
