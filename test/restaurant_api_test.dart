@@ -5,6 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:tosik/data/api/api_service.dart';
 import 'package:tosik/data/model/restaurant_detail_model.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
+
 import 'restaurant_api_test.mocks.dart';
 
 @GenerateMocks([http.Client])
@@ -16,71 +17,69 @@ void main() {
     "count": 2,
     "restaurants": [
       {
-        "id": "ygewwl55ktckfw1e867",
-        "name": "Istana Emas",
-        "description": "Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
-        "pictureId": "05",
-        "city": "Balikpapan",
-        "rating": 4.5
+        "id": "rqdv5juczeskfw1e867",
+        "name": "Melting Pot",
+        "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. ...",
+        "pictureId": "14",
+        "city": "Medan",
+        "rating": 4.2
       },
       {
-        "id": "fnfn8mytkpmkfw1e867",
-        "name": "Makan mudah",
-        "description": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.",
-        "pictureId": "22",
-        "city": "Medan",
-        "rating": 3.7
-      },
+        "id": "s1knt6za9kkfw1e867",
+        "name": "Kafe Kita",
+        "description": "Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. ...",
+        "pictureId": "25",
+        "city": "Gorontalo",
+        "rating": 4
+      }
     ]
   }
   ''';
 
   const String getDetailRestaurantResponse = '''
   {
-      "error": false,
-      "message": "success",
-      "restaurant": {
-      "id": "ygewwl55ktckfw1e867",
-      "name": "Istana Emas",
-      "description": "Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
-      "city": "Balikpapan",
-      "address": "Jln. Belimbing Timur no 27",
-      "pictureId": "05",
-      "rating": 4.5,
+    "error": false,
+    "message": "success",
+    "restaurant": {
+      "id": "rqdv5juczeskfw1e867",
+      "name": "Melting Pot",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. ...",
+      "city": "Medan",
+      "address": "Jln. Pandeglang no 19",
+      "pictureId": "14",
       "categories": [
         {
-          "name": "Bali"
+          "name": "Italia"
+        },
+        {
+          "name": "Modern"
         }
       ],
       "menus": {
         "foods": [
           {
-            "name": "Daging Sapi"
+            "name": "Paket rosemary"
           },
           {
-            "name": "Bebek crepes"
-          },
+            "name": "Toastie salmon"
+          }
         ],
         "drinks": [
           {
-            "name": "Sirup"
-         },
-          {
-            "name": "Jus mangga"
+            "name": "Es krim"
           },
+          {
+            "name": "Sirup"
+          }
         ]
       },
+      "rating": 4.2,
       "customerReviews": [
         {
-          "name": "Gilang",
-          "review": "Tempatnya bagus namun menurut saya masih sedikit mahal.",
-          "date": "13 Juli 2019"
-        },
-        {
           "name": "Ahmad",
-          "review": "Tidak ada duanya!",
-          "date": "14 Agustus 2018"
-        },
+          "review": "Tidak rekomendasi untuk pelajar!",
+          "date": "13 November 2019"
+        }
       ]
     }
   }

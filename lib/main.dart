@@ -14,7 +14,6 @@ import 'package:tosik/provider/restaurant_search_provider.dart';
 import 'package:tosik/ui/restaurant_detail_screen.dart';
 import 'package:tosik/ui/restaurant_screen.dart';
 import 'package:tosik/ui/search_screen.dart';
-// import 'package:tosik/ui/splash_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:tosik/common/navigation.dart';
 import 'package:tosik/data/api/api_service.dart';
@@ -97,9 +96,7 @@ class MyApp extends StatelessWidget {
         ),
         navigatorKey: navigatorKey,
         initialRoute: HomeScreen.routeName,
-        // initialRoute: SplashScreen.routeName,
         routes: {
-          // SplashScreen.routeName: (_) => const SplashScreen(),
           HomeScreen.routeName: (_) => const HomeScreen(),
           RestaurantScreen.routeName: (_) => const RestaurantScreen(),
           RestaurantDetailScreen.routeName: (context) => RestaurantDetailScreen(
