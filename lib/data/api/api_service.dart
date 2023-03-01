@@ -1,10 +1,8 @@
-// ignore_for_file: depend_on_referenced_packages
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:tosik/data/model/review_model.dart';
 import 'package:tosik/data/model/restaurant_detail_model.dart';
 import 'package:tosik/data/model/restaurant_list_model.dart';
-import 'package:tosik/data/model/review_model.dart';
 import 'package:tosik/data/model/restaurant_search_model.dart';
 
 class ApiService {
@@ -15,20 +13,20 @@ class ApiService {
   static const String baseurl = 'https://restaurant-api.dicoding.dev';
 
   Future<RestaurantListResult> getRestaurantList() async {
-    final response = await http.get(
-      Uri.parse("$baseurl/list"),
+    final response = await client.get(
+      Uri.parse('$baseurl/list'),
     );
     if (response.statusCode == 200) {
       return RestaurantListResult.fromJson(
         json.decode(response.body),
       );
     } else {
-      throw Exception("Failed Load Data");
+      throw Exception('Failed to load data');
     }
   }
 
   Future<RestaurantDetailResult> getRestaurantDetail(String id) async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$baseurl/detail/$id'),
     );
     if (response.statusCode == 200) {
@@ -36,20 +34,20 @@ class ApiService {
         json.decode(response.body),
       );
     } else {
-      throw Exception("Failed Load Data");
+      throw Exception('Failed to load data');
     }
   }
 
   Future<RestaurantSearchResult> getRestaurantSearch(String query) async {
-    final response = await http.get(
-      Uri.parse("$baseurl/search?q=$query"),
+    final response = await client.get(
+      Uri.parse('$baseurl/search?q=$query'),
     );
     if (response.statusCode == 200) {
       return RestaurantSearchResult.fromJson(
         json.decode(response.body),
       );
     } else {
-      throw Exception("Failed Load Data");
+      throw Exception('Failed to load data');
     }
   }
 
@@ -58,17 +56,15 @@ class ApiService {
     required String name,
     required String review,
   }) async {
-    final response = await http.post(
-      Uri.parse("$baseurl/review"),
-      body: jsonEncode(
-        <String, String>{
-          'id': id,
-          "name": name,
-          "review": review,
-        },
-      ),
+    final response = await client.post(
+      Uri.parse('$baseurl/review'),
+      body: jsonEncode(<String, String>{
+        'id': id,
+        'name': name,
+        'review': review,
+      }),
       headers: <String, String>{
-        "Content-Type": 'application/json',
+        'Content-Type': 'application/json',
       },
     );
 
@@ -77,7 +73,7 @@ class ApiService {
         json.decode(response.body),
       );
     } else {
-      throw Exception("Failed Post Review");
+      throw Exception('Failed post data');
     }
   }
 }
